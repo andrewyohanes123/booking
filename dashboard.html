@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="antriDash">
+  <head>
+    <meta charset="utf-8">
+    <title ng-controller="dashTitle">{{ username }} | Dashboard</title>
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bivi.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css">
+    <link rel="stylesheet" href="assets/css/simple-sidebar.css">
+    <script src="assets/js/jquery.min.js" charset="utf-8"></script>
+    <script src="assets/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="assets/js/jquery-ui.min.js" charset="utf-8"></script>
+    <script src="assets/js/angular.min.js" charset="utf-8"></script>
+    <script src="assets/js/angular-route.min.js" charset="utf-8"></script>
+    <script src="assets/js/angular-cookies.min.js" charset="utf-8"></script>
+    <script src="assets/js/bivi_dash.js" charset="utf-8"></script>
+    <script src="assets/js/moment.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">BiVi</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="javascript:void(0);" data-toggle="modal" data-target="#admin-setting" ng-controller="dashTitle"><span class="fa fa-user-o fa-lg"></span>&nbsp;{{ username }}</a></li>
+          <li><a href="javascript:void(0);" id="logoutBtn"><span class="fa fa-sign-out fa-lg"></span>&nbsp;Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="space"></div>
+    <div id="wrapper" class="toggled" ng-controller="sessionCheck">
+      <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+              <li class="sidebar-brand" ng-controller="dashTitle">
+                  <a href="#">{{ nama_admin }}</a>
+              </li>
+              <li><a href="javascript:void(0);" id="toggle-menu-antrian"><span class="fa fa-list-ul fa-lg"></span>&nbsp;Kelola antrian <span id="right" class="fa fa-minus-square-o fa-lg"></span></a></li>
+              <ul class="submenu" id="menu-antrian">
+                <li><a href="#">Daftar antrian hari ini</a></li>
+                <li><a href="#!/antrian_seluruh">Daftar antrian per tanggal</a></li>
+                <li><a href="#!/antrian_selesai">Daftar antrian (selesai)</a></li>
+              </ul>
+              <li><a href="javascript:void(0);" id="toggle-menu-tujuan"><span class="fa fa-align-justify fa-lg"></span>&nbsp;Kelola tujuan antrian <span id="right2" class="fa fa-minus-square-o fa-lg"></span></a></li>
+              <ul class="submenu" id="menu-tujuan">
+                <li><a href="#!/tujuan_antrian">Tujuan antrian</a></li>
+              </ul>
+              <li><a href="#!/administrator"><span class="fa fa-user-circle fa-lg"></span>&nbsp;Administrator</a></li>
+              <!-- <li><a href="#!/pengaturan"><span class="fa fa-cog fa-lg"></span>&nbsp;Pengaturan</a></li> -->
+          </ul>
+      </div>
+      <div class="page-content-wrapper">
+        <br>
+        <div class="" ng-view>
+
+        </div>
+      </div>
+    </div>
+    <div ng-controller="adminSetting" class="modal fade" role="dialog" id="admin-setting">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div ng-controller="dashTitle" class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><span class="fa fa-user-o fa-lg"></span>&nbsp;{{ username }}</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-group" action="#" method="post">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <span class="fa fa-asterisk fa-lg"></span>
+                </span>
+                <input type="password" ng-model="password_lama" name="" class="form-control" placeholder="Password lama" ng-model="admin.password_lama">
+              </div>
+              <br>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <span class="fa fa-key fa-lg"></span>
+                </span>
+                <input type="password" name="" class="form-control" ng-model="password_baru" placeholder="Password baru" ng-model="admin.password_baru1">
+              </div>
+              <br>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <span class="fa fa-key fa-lg"></span>
+                </span>
+                <input type="password" name="" class="form-control" ng-model="password_baru2" placeholder="Ulangi password baru" ng-model="admin.password_baru1">
+              </div>
+              <hr>
+              <div class="btn-group">
+                <button type="button" ng-click="simpanPassword()" class="btn btn-success" name="button"><span class="fa fa-save fa-lg"></span>&nbsp;Simpan</button>
+                <button type="button" class="btn btn-danger" name="button"><span class="fa fa-times fa-lg"></span>&nbsp;Batal</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

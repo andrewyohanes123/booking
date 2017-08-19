@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="antriApp">
+<head>
+  <meta charset="utf-8">
+  <title ng-controller="titleController">{{ title }}</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bivi.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css">
+  <script src="assets/js/jquery.min.js" charset="utf-8"></script>
+  <script src="assets/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="assets/js/jquery-ui.min.js" charset="utf-8"></script>
+  <script src="assets/js/angular.min.js" charset="utf-8"></script>
+  <script src="assets/js/angular-route.min.js" charset="utf-8"></script>
+  <script src="assets/js/angular-cookies.min.js" charset="utf-8"></script>
+  <script src="assets/js/bivi.js" charset="utf-8"></script>
+  <script src="assets/js/moment.js" charset="utf-8"></script>
+</head>
+<body ng-controller="app">
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">BiVi</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html"><span class="fa fa-sign-in fa-lg"></span>&nbsp;Login</a></li>
+      </ul>
+    </div>
+  </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div id="form-pendaftaran" ng-hide="currentPath == '/no_antrian'" class="panel panel-primary">
+            <div class="panel-heading">
+              <h4><span class="fa fa-ticket fa-lg"></span>&nbsp;Ambil antrian</h4>
+            </div>
+            <div class="panel-body">
+              <form class="form-group" action="#" id="ambil_antri" method="post">
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="fa fa-user-circle fa-lg"></span></span>
+                  <input id="nama_pengantri" ng-model="nama" type="text" class="form-control" name="" placeholder="Nama Pengantri">
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="fa fa-vcard-o fa-lg"></span></span>
+                  <select id="tujuan" ng-model="tujuan" class="form-control" name="">
+                    <option value="">Pilih tujuan mem-booking</option>
+                    <option ng-repeat="hasil in data_tujuan" value="{{ hasil.id_tujuan }}">{{ hasil.tujuan }}</option>
+                  </select>
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="fa fa-calendar fa-lg"></span></span>
+                  <input type="date" ng-model="tanggal" class="form-control" placeholder="Pilih tanggal booking" id="pick_tanggal">
+                </div>
+                <br>
+                <div>
+                  <div id="jam_antri">
+                    <h4>Jam pengantri</h4>
+                    <div class="row">
+                      <div ng-repeat="jam in jam_antri" class="col-sm-2">
+                        <div class="well well-sm hijau" id="{{ jam_antri.indexOf(jam) }}" ng-click="click_hijau(jam.jam, $event)" ng-show="jam.diambil == false">
+                          <p><center>{{ jam.jam }}</center></p>
+                        </div>
+                        <div class="well well-sm merah" ng-show="jam.diambil == true">
+                          <p><center>{{ jam.jam }}</center></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+                <h4>Deskripsi pengantri</h4>
+                <textarea ng-model="ket_user" name="name" class="form-control" rows="8" cols="80"></textarea>
+                <br>
+                <h4 id="notif" class="alert alert-danger"></h4>
+                <h4 id="found" class="alert alert-success">
+                  <span class="fa fa-check fa-lg"></span>&nbsp;
+                  Loading
+                </h4>
+                <hr>
+                <div class="btn-group">
+                  <button type="button" ng-click="cek_tiket()" class="btn btn-default"><span class="fa fa-ticket fa-lg"></span>&nbsp;Cek antrian</button>
+                  <button type="button" ng-click="tambah_antri()" class="btn btn-primary"><span class="fa fa-ticket fa-lg"></span>&nbsp;Ambil antrian</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+    <div ng-view>
+
+    </div>
+  </body>
+</html>

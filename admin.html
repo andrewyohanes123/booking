@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h4 class="panel-header">
+            <a href="#" title="Kembali" class="btn btn-danger" ><span class="fa fa-arrow-left"></span></a>
+            &nbsp;
+            <span class="fa fa-user-o fa-lg"></span>&nbsp;Daftar administrator
+          </h4>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><span class="fa fa-plus-circle fa-lg"></span>&nbsp;Tambah administrator</h4>
+              <hr>
+              <form class="form-group" action="#" method="post">
+                <div id="uname" class="input-group">
+                  <span class="input-group-addon">
+                    <span class="fa fa-user-circle-o fa-lg"></span>
+                  </span>
+                  <input type="text" class="form-control" ng-model="username" name="" placeholder="Username">
+                  <input type="hidden" class="form-control" id="" ng-model="id" name="" placeholder="Username">
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <span class="fa fa-user-o fa-lg"></span>
+                  </span>
+                  <input type="text" class="form-control" ng-model="nama_admin" name="" placeholder="Nama admin">
+                </div>
+                <br>
+                <div id="passwd" class="input-group">
+                  <span class="input-group-addon">
+                    <span class="fa fa-key fa-lg"></span>
+                  </span>
+                  <input  type="password" class="form-control" ng-model="password" name="" placeholder="Password">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success" id="tambah" ng-click="tambahAdmin()" name="button"><span class="fa fa-plus-circle fa-lg"></span>&nbsp;Tambah</button>
+                <button type="submit" id="simpan" class="btn btn-warning" ng-click="updateAdmin()" name="button"><span class="fa fa-save fa-lg"></span>&nbsp;Simpan</button>
+              </form>
+            </div>
+            <div class="col-sm-6">
+              <h4><span class="fa fa-user-o fa-lg"></span>&nbsp;Daftar administrator</h4>
+              <hr>
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>Nama administrator</th>
+                      <th>Username</th>
+                      <th>Hapus</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-hide="hasilRow != 0">
+                      <td colspan="4"><center>Tidak ada admin</center></td>
+                    </tr>
+                    <tr ng-repeat="hasil in dataAdmin">
+                      <td>{{ dataAdmin.indexOf(hasil) +1 }}</td>
+                      <td>{{ hasil.nama_admin }}</td>
+                      <td><b>{{ hasil.username }}</b></td>
+                      <td>
+                        <button type="button" ng-show="hasil.username == sess" ng-click="editAdmin(hasil.id_admin, hasil.username, hasil.nama_admin)" class="btn btn-warning btn-xs" name="button"><span class="fa fa-edit fa-lg"></span>&nbsp;Edit</button>
+                        <button disabled type="button" ng-hide="hasil.username == sess" ng-click="editAdmin(hasil.id_admin)" class="btn btn-warning btn-xs" name="button"><span class="fa fa-edit fa-lg"></span>&nbsp;Edit</button>
+                          <button type="button" ng-hide="hasil.username == sess" ng-click="hapusAdmin(hasil.id_admin)" class="btn btn-danger btn-xs" name="button"><span class="fa fa-remove fa-lg"></span>&nbsp;Hapus</button>
+                          <button type="button" disabled ng-show="hasil.username == sess" ng-click="hapusAdmin(hasil.id_admin)" class="btn btn-danger btn-xs" name="button"><span class="fa fa-remove fa-lg"></span>&nbsp;Hapus</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

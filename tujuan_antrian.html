@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h4 class="panel-header">
+            <a href="#" title="Kembali" class="btn btn-warning" ><span class="fa fa-arrow-left"></span></a>
+            &nbsp;
+            <span class="fa fa-arrow-right fa-lg"></span>&nbsp;Tujuan antrian
+          </h4>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><span class="fa fa-plus-circle fa-lg"></span>&nbsp;Tambah tujuan antrian</h4>
+              <form class="form-group" action="#" method="post">
+                <div class="input-group">
+                  <span class="input-group-addon">Tujuan</span>
+                  <input ng-model="tujuan" type="text" class="form-control" placeholder="Tujuan antrian">
+                  <input ng-model="id_tujuan" type="hidden" class="form-control" placeholder="Tujuan antrian">
+                  <span class="input-group-btn">
+                    <button type="submit" id="editTujuan" ng-click="updateTujuan(id_tujuan, tujuan)" class="btn btn-success" name="button"><span class="fa fa-save fa-lg"></span>&nbsp;Simpan</button>
+                    <button type="submit" id="editBatal" class="btn btn-danger" name="button"><span class="fa fa-times-circle fa-lg"></span>&nbsp;Batal</button>
+                    <button type="submit" id="tambahTujuan" ng-click="tambahTujuan()" class="btn btn-success" name="button"><span class="fa fa-plus-circle fa-lg"></span>&nbsp;Tambah</button>
+                  </span>
+                </div>
+                <h4 id="warning" class="alert alert-warning">
+                  <span class="fa fa-exclamation-circle fa-lg"></span>&nbsp;
+                  Masukkan tujuan antri
+                </h4>
+                <h4 id="not_found" class="alert alert-danger">
+                  <span class="fa fa-exclamation-circle fa-lg"></span>&nbsp;Gagal memasukkan data ke database
+                </h4>
+                <h4 id="found" class="alert alert-success">
+                  <span class="fa fa-check fa-lg"></span>&nbsp;Loading
+                </h4>
+              </form>
+            </div>
+            <div class="col-sm-6">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th>No. </th>
+                      <th>Tujuan</th>
+                      <th>Edit/Hapus</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td ng-show="hasilRow == 0" colspan="2"><center>Tidak ada tujuan antrian</center></td>
+                    </tr>
+                    <tr ng-repeat="data in dataAdmin">
+                      <td>{{ dataAdmin.indexOf(data) + 1 }}</td>
+                      <td>{{ data.tujuan }}</td>
+                      <td>
+                        <button type="button" ng-click="editTujuan(data.id_tujuan, data.tujuan)" class="btn btn-warning btn-sm" name="button"><span class="fa fa-edit fa-lg"></span>&nbsp;Edit</button>
+                        <button type="button" ng-click="hapusTujuan(data.id_tujuan)" class="btn btn-danger btn-sm" name="button"><span class="fa fa-remove fa-lg"></span>&nbsp;Hapus</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

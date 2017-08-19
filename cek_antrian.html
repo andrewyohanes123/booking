@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="antriApp">
+<head>
+  <meta charset="utf-8">
+  <title ng-controller="titleController">{{ title }}</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bivi.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css">
+  <script src="assets/js/jquery.min.js" charset="utf-8"></script>
+  <script src="assets/js/jquery-ui.min.js" charset="utf-8"></script>
+  <script src="assets/js/angular.min.js" charset="utf-8"></script>
+  <script src="assets/js/angular-route.min.js" charset="utf-8"></script>
+  <script src="assets/js/angular-cookies.min.js" charset="utf-8"></script>
+  <script src="assets/js/bivi.js" charset="utf-8"></script>
+  <script src="assets/js/moment.js" charset="utf-8"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">BiVi</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html"><span class="fa fa-sign-in fa-lg"></span>&nbsp;Login</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="well" ng-controller="cek_antri">
+          <h4><span class="fa fa-ticket fa-lg"></span>&nbsp;Cek nomor antrian</h4>
+          <hr>
+          <form class="form-group" action="#" method="post">
+            <div class="input-group">
+              <span class="input-group-addon"><span class="fa fa-ticket fa-lg"></span></span>
+              <input type="text" ng-model="unique_id" class="form-control" name="" placeholder="Masukkan nomor antrian">
+              <span class="input-group-btn">
+                <button ng-click="cek_antrian()" type="submit" class="btn btn-primary" name="button"><span class="fa fa-check fa-lg"></span>&nbsp;Cek</button>
+              </span>
+            </div>
+          </form>
+          <br>
+          <h4 id="found" class="alert alert-success">
+            <span class="fa fa-check fa-lg"></span>&nbsp; Loading...
+          </h4>
+          <h4 id="not_found" class="alert alert-danger">
+            <span class="fa fa-exclamation-circle fa-lg"></span>&nbsp; Tidak ada antrian dengan id {{ unique_id }}
+          </h4>
+          <h4 class="alert alert-warning" id="warning">
+            <span class="fa fa-exclamation-circle fa-lg"></span>&nbsp;Isi nomor antrian Anda!
+          </h4>
+          <div id="data_antrian" class="table-responsive">
+            <table class="table table-striped table-bordered table-condensed">
+                  <tbody>
+                    <tr><td><b>ID</b></td><td>{{ data_antri.unique_id }}</td></tr>
+                    <tr><td><b>Nama</b></td><td>{{ data_antri.nama }}</td></tr>
+                    <tr><td><b>Tujuan</b></td><td>{{ data_antri.tujuan }}</td></tr>
+                    <tr><td><b>Tanggal</b></td><td>{{ tanggal }}</td></tr>
+                    <tr><td><b>Jam</b></td><td>{{ data_antri.jam }}</td></tr>
+                  </tbody>
+              </div>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</body>
+</html>

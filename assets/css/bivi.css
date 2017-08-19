@@ -1,0 +1,121 @@
+textarea {
+  resize: none;
+}
+
+.navbar-inverse {
+  background: #02313d;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 4px solid #2ea1bf;
+}
+
+.space {
+  height: 54px;
+}
+
+#sidebar-wrapper {
+  background: #001c20 !important;
+}
+
+.sidebar-brand a {
+  text-indent: 30px !important;
+}
+
+.sidebar-nav li {
+  text-indent: 10px !important;
+  clear: both;
+}
+
+.sidebar-nav li a .fa-dashboard {
+  color: #1bc4f1;
+}
+
+.sidebar-nav li a .fa-align-justify {
+  color : #f46d09;
+}
+
+.sidebar-nav li a .fa-list-ul {
+  color : #3b8706;
+}
+
+.sidebar-nav li a .fa-cog {
+  color: #07755b;
+}
+
+.sidebar-nav li a .fa-user-circle {
+  color : #0ee87f;
+}
+
+.sidebar-nav li a .fa-plus-square-o, .fa-minus-square-o {
+  color: red;
+}
+
+.sidebar-nav li a {
+  clear: both;
+}
+
+.submenu {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid #af0e0e;
+}
+
+.submenu li a {
+  text-indent: 45px !important;
+}
+
+.breadcrumb {
+  background: #db3232;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+}
+
+.modal-header {
+  background: linear-gradient(to top, #93140c, #c93b3b);
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.merah {
+  background : #e34f44;
+  border : 1.5px solid #a41c12;
+  font-size: 15px;
+  color : rgba(0, 0, 0, 0.47);
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.hijau {
+  background : #80c866;
+  border: 1.5px solid #4c9134;
+  font-size: 15px;
+  color : rgba(0, 0, 0, 0.47);
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hijau:active {
+  background: #5cab40;
+  color : rgba(0, 0, 0, 0.47);
+}
+
+.active-merah {
+  background: #c13127;
+  color : rgba(0, 0, 0, 0.37);
+}
+
+.active-hijau {
+  background: #5cab40;
+  color : rgba(0, 0, 0, 0.47);
+}
+
+#jam_antri, #notif, #not_found, #found, #data_antrian, #warning, #editTujuan, #editBatal, #enabled, #simpan {
+  display: none;
+}

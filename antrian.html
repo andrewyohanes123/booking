@@ -1,0 +1,47 @@
+<div class="container-fluid" id="main_dash">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-header"><span class="fa fa-list fa-lg"></span>&nbsp;Daftar antrian</h4>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table ng-controller="antrianSekarang" class="table table-hover table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Nama</th>
+                  <th>Tujuan</th>
+                  <th>Tanggal</th>
+                  <th>Waktu</th>
+                  <th>Pengantri</th>
+                  <th>Selesai</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-show="antrian == null">
+                  <td colspan="7"><center>Tidak ada antrian</center></td>
+                </tr>
+                <tr ng-hide="antrian == null" ng-repeat="data in antrian">
+                  <td>{{ antrian.indexOf(data) + 1 }}</td>
+                  <td>{{ data.nama }}</td>
+                  <td>{{ data.tujuan }}</td>
+                  <td>{{ data.tanggal }}</td>
+                  <td>{{ data.jam }}</td>
+                  <td>
+                    <button ng-show="antrian.indexOf(data) == 0" ng-click="btnSelesaiShow(data.id_antri)" type="button" class="btn btn-success btn-sm" name="button">Datang</button>
+                    <button ng-show="antrian.indexOf(data) != 0" disabled type="button" class="btn btn-success btn-sm" name="button">Datang</button>
+                  </td>
+                  <td>
+                    <button disabled id="{{ data.id_antri }}" ng-click="antriSelesai(data.id_antri)" type="button" class="btn btn-warning btn-sm" name="button">Selesai</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
